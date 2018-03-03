@@ -9,7 +9,6 @@ class Navigation extends Component {
 
 	}
 	render() {
-		// return <div>{this.state.companyName}</div>
 		return (
 			<nav className="navbar navbar-default">
 				<div className="container-fluid">

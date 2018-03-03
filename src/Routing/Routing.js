@@ -6,7 +6,7 @@ import {
   Link
 } from 'react-router-dom';
 
-const Home = () => <div>HOME</div>
+import Home from '../Home/Home';
 
 class AppRouting extends Component {
 	render() {
