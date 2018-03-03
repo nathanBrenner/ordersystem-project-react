@@ -21,7 +21,7 @@ class Navigation extends Component {
 						<ul className="nav navbar-nav">
 							<li><Link to="/customers">Customers</Link></li>
 							<li><a href="/">Products</a></li>
-							<li><a href="/">Orders</a></li>
+							<li><Link to="/orders">Orders</Link></li>
 						</ul>
 					</div>
 				</div>
