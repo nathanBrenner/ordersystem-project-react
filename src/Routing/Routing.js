@@ -10,6 +10,7 @@ import Home from '../Home/Home';
 import Customers from '../Customers/Customers';
 import Navigation from '../Navigation/Navigation';
 import Orders from '../Orders/Orders';
+import Products from '../Products/Products';
 
 class AppRouting extends Component {
 	render() {
@@ -19,9 +20,10 @@ class AppRouting extends Component {
 					<Navigation />
 					<div className="container">
 						<Redirect from="/" to="home" />
-						<Route path="/home" component={Home}></Route>
-						<Route path="/customers" component={Customers}></Route>
-						<Route path="/orders" component={Orders}></Route>
+						<Route path="/home" component={Home} />
+						<Route path="/customers" component={Customers} />
+						<Route path="/orders" component={Orders} />
+						<Route path="/products" component={Products} />
 					</div>
 				</div>
 			</Router>
