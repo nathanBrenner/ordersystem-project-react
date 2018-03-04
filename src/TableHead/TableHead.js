@@ -12,7 +12,7 @@ class TableHead extends Component {
 	}
 
 	renderColumn(column) {
-		return <th>{column}</th>
+		return <th key={column}>{column}</th>
 	}
 }
 

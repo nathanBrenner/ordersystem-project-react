@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import OrdersForm from './OrdersForm';
 import OrdersTable from './OrdersTable';
+import { get } from '../fetchUtils';
 
 class Orders extends Component {
 	constructor(props) {
@@ -13,17 +14,7 @@ class Orders extends Component {
 	}
 
 	componentDidMount() {
-		fetch(`api/orders`, {
-			accept: "application/json"
-		})
-		.then(checkStatus)
-		.then(parseJSON)
-		.then(res => {
-			this.setState({entities: res});
-		})
-		.catch(err => {
-			alert('unable to get orders');
-		})
+		get(`orders`).then(entities => this.setState({entities}));
 	}
 	render() {
 		return (
@@ -41,21 +32,6 @@ class Orders extends Component {
 			</div>
 		)
 	}
-}
-
-function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
-  const error = new Error(`HTTP Error ${response.statusText}`);
-  error.status = response.statusText;
-  error.response = response;
-  console.log(error); // eslint-disable-line no-console
-  throw error;
-}
-
-function parseJSON(response) {
-  return response.json();
 }
 
 export default Orders

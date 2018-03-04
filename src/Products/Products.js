@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ProductsTable from './ProductsTable';
+import { get } from '../fetchUtils';
 
 class Products extends Component {
 	constructor(props) {
@@ -17,18 +18,7 @@ class Products extends Component {
 	}
 
 	componentDidMount() {
-
-		fetch(`api/products`, {
-			accept: "application/json"
-		})
-		.then(checkStatus)
-		.then(parseJSON)
-		.then(res => {
-			this.setState({entities: res});
-		})
-		.catch(err => {
-			alert('unable to get customers');
-		});
+		get('products').then(entities => this.setState({entities}));
 	}
 
 	render() {
@@ -49,18 +39,3 @@ class Products extends Component {
 }
 
 export default Products;
-
-function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
-  const error = new Error(`HTTP Error ${response.statusText}`);
-  error.status = response.statusText;
-  error.response = response;
-  console.log(error); // eslint-disable-line no-console
-  throw error;
-}
-
-function parseJSON(response) {
-  return response.json();
-}
