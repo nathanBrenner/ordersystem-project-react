@@ -7,6 +7,7 @@ class Orders extends Component {
 		super(props);
 		this.state = {
 			title: 'Orders',
+			columns: ['Order Id', 'Customer Name', 'Total Items', 'Total Sale'],
 			entities: []
 		}
 	}
@@ -32,7 +33,10 @@ class Orders extends Component {
 					<OrdersForm />
 				</div>
 				<div className="col-sm-12">
-					<OrdersTable entities={this.state.entities} />
+					<OrdersTable
+						columns={this.state.columns}
+						entities={this.state.entities}
+					/>
 				</div>
 			</div>
 		)

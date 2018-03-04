@@ -12,32 +12,36 @@ class OrdersTable extends Component {
 		)
 	}
 
-	renderRows() {
-		const {entities} = this.props;
-		const emptyRows = [{id: '0', customerName: '0 customers', totalItems: 0, totalSale: 0}];
-		const rows = entities && entities.length > 0 ? entities.map(this.renderRow) : emptyRows.map(this.renderRow)
-		return <tbody>{rows}</tbody>
+	renderRows(entities) {
+		return <tbody>{this.mapRows(entities)}</tbody>
 	}
 
-	renderTableHead() {
+	mapRows(entities) {
+		return entities && entities.length > 0
+			? entities.map(this.renderRow)
+			: [].map(this.renderRow);
+	}
+
+	renderTableHead(columns) {
 		return (
 			<thead>
 				<tr>
-					<th>Order Id</th>
-					<th>Customer Name</th>
-					<th>Total Items</th>
-					<th>Total Sale </th>
+					{columns.map(this.renderColumn)}
 				</tr>
 			</thead>
 		)
+	}
+
+	renderColumn(column) {
+		return <th>{column}</th>
 	}
 
 
 	render() {
 		return (
 			<table className="table">
-				{this.renderTableHead()}
-				{this.renderRows()}
+				{this.renderTableHead(this.props.columns)}
+				{this.renderRows(this.props.entities)}
 			</table>
 		)
 	}
