@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-import CustomersTable from './CustomersTable';
 import { get } from '../fetchUtils';
-
-// tech debt: https://github.com/fullstackreact/food-lookup-demo/blob/master/client/src/Client.js
-// use something like that as an abstract service
+import Table from '../Table/Table';
 
 class Customers extends Component {
 	constructor(props) {
@@ -12,13 +9,13 @@ class Customers extends Component {
 			title: 'Customers',
 			entities: [],
 			columns: [
-				'Full Name',
-				'Address Line 1',
-				'Address Line 2',
-				'City',
-				'State',
-				'Zip',
-				'Discount?',
+				{title: 'Full Name', 			mapTo: 'fullName'},
+				{title: 'Address Line 1', mapTo: 'address1'},
+				{title: 'Address Line 2', mapTo: 'address2'},
+				{title: 'City', 					mapTo: 'city'},
+				{title: 'State', 					mapTo: 'state'},
+				{title: 'Zip', 						mapTo: 'zip'},
+				{title: 'Discount?', 			mapTo: 'getDiscount'},
 			]
 		}
 	}
@@ -32,9 +29,9 @@ class Customers extends Component {
 			<div className="row">
 				<div className="col-md-12">
 					<h1>{this.state.title}</h1>
-					<CustomersTable
-						entities={this.state.entities}
+					<Table
 						columns={this.state.columns}
+						entities={this.state.entities}
 					/>
 				</div>
 			</div>

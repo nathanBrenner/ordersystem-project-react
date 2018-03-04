@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import OrdersForm from './OrdersForm';
-import OrdersTable from './OrdersTable';
+import Table from '../Table/Table';
 import { get } from '../fetchUtils';
 
 class Orders extends Component {
@@ -8,7 +8,12 @@ class Orders extends Component {
 		super(props);
 		this.state = {
 			title: 'Orders',
-			columns: ['Order Id', 'Customer Name', 'Total Items', 'Total Sale'],
+			columns: [
+				{title: 'Order Id', 			mapTo: 'id'},
+				{title: 'Customer Name', 	mapTo: 'customerId'},
+				{title: 'Total Items', 		mapTo: 'totalItems'},
+				{title: 'Total Sale', 		mapTo: 'totalSale'}
+			],
 			entities: []
 		}
 	}
@@ -16,6 +21,7 @@ class Orders extends Component {
 	componentDidMount() {
 		get(`orders`).then(entities => this.setState({entities}));
 	}
+
 	render() {
 		return (
 			<div className="row">
@@ -24,7 +30,7 @@ class Orders extends Component {
 					<OrdersForm />
 				</div>
 				<div className="col-sm-12">
-					<OrdersTable
+					<Table
 						columns={this.state.columns}
 						entities={this.state.entities}
 					/>

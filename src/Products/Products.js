@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import ProductsTable from './ProductsTable';
 import { get } from '../fetchUtils';
+import Table from '../Table/Table';
 
 class Products extends Component {
 	constructor(props) {
@@ -9,11 +9,11 @@ class Products extends Component {
 			title: 'Products',
 			entities: [],
 			columns: [
-				'Product Id',
-				'Name',
-				'Color',
-				'Price',
-			]
+				{title: 'Product Id', mapTo: 'id'},
+				{title: 'Name', 			mapTo: 'name'},
+				{title: 'Color', 			mapTo: 'color'},
+				{title: 'Price', 			mapTo: 'price'},
+			],
 		}
 	}
 
@@ -28,7 +28,7 @@ class Products extends Component {
 					<h1>{this.state.title}</h1>
 				</div>
 				<div className="col-sm-12">
-					<ProductsTable
+					<Table
 						columns={this.state.columns}
 						entities={this.state.entities}
 					/>

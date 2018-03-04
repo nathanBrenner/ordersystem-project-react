@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Column from './Column';
 
 class TableHead extends Component {
 	render() {
@@ -12,7 +13,7 @@ class TableHead extends Component {
 	}
 
 	renderColumn(column) {
-		return <th key={column}>{column}</th>
+		return <Column column={column} />
 	}
 }
 
