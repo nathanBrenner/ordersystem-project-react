@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 class CustomersTable extends Component {
 
-	renderCustomer(customer) {
+	renderRow(customer) {
 		return (
 			<tr key={customer.fullName}>
 				<td>{customer.fullName}</td>
@@ -16,9 +16,9 @@ class CustomersTable extends Component {
 		)
 	}
 
-	renderCustomers() {
+	renderRows() {
 		const {customers} = this.props
-		const customerList = customers.map(this.renderCustomer);
+		const customerList = customers.map(this.renderRow);
 		return <tbody>{customerList}</tbody>
 	}
 
@@ -43,7 +43,7 @@ class CustomersTable extends Component {
 			<div>
 				<table className="table">
 					{this.renderTableHead()}
-					{this.renderCustomers()}
+					{this.renderRows()}
 				</table>
 			</div>
 		)

@@ -26,7 +26,7 @@ class Customers extends Component {
 		})
 		.catch(err => {
 			alert('unable to get customers');
-		})
+		});
 	}
 
 	render() {
@@ -36,7 +36,7 @@ class Customers extends Component {
 					<h1>{this.state.title}</h1>
 					<CustomersTable customers={this.state.customers} />
 				</div>
-		</div>
+			</div>
 		)
 	}
 }
