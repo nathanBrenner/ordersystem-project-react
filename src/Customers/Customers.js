@@ -22,10 +22,10 @@ class Customers extends Component {
 		.then(checkStatus)
 		.then(parseJSON)
 		.then(res => {
-			this.setState({customers: res})
+			this.setState({customers: res});
 		})
 		.catch(err => {
-			debugger
+			alert('unable to get customers');
 		})
 	}
 
@@ -34,7 +34,7 @@ class Customers extends Component {
 			<div className="row">
 				<div className="col-md-12">
 					<h1>{this.state.title}</h1>
-					<CustomersTable customser={this.state.customers} />
+					<CustomersTable customers={this.state.customers} />
 				</div>
 		</div>
 		)
