@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Row from './Row';
+import { generateUUID } from '../fetchUtils'
 
 class Rows extends Component {
 	mapRows(entities, columns) {
@@ -9,7 +10,14 @@ class Rows extends Component {
 	}
 
 	renderRow(entity, columns) {
-		return <Row columns={columns} entity={entity} />
+		const key = generateUUID();
+		return (
+			<Row 
+				key={key}
+				columns={columns}
+				entity={entity}
+			/>
+		)
 	}
 
 	render() {

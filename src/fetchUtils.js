@@ -1,4 +1,6 @@
-export function checkStatus(response) {
+const uuidV4 = require('uuid/v4');
+
+function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -19,6 +21,10 @@ export function get(endpoint) {
 		.catch(err => alert(err));
 }
 
-export function parseJSON(response) {
+function parseJSON(response) {
   return response.json();
+}
+
+export function generateUUID(): string {
+	return uuidV4();
 }

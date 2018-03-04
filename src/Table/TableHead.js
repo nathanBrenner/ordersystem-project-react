@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Column from './Column';
+import { generateUUID } from '../fetchUtils'
 
 class TableHead extends Component {
 	render() {
@@ -13,7 +14,9 @@ class TableHead extends Component {
 	}
 
 	renderColumn(column) {
-		return <Column column={column} />
+		const key = generateUUID();
+
+		return <Column key={key} column={column} />
 	}
 }
 

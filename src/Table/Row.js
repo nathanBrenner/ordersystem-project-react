@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import Cell from './Cell';
+import { generateUUID } from '../fetchUtils'
 
 class Row extends Component {
 	render() {
-		const column = this.props.columns[0].mapTo;
-		const key = this.props.entity[column];
+		const key = generateUUID();
 		return (
 			<tr key={key}>
 				{this.mapColumns(this.props.columns, this.props.entity)}
@@ -13,7 +13,14 @@ class Row extends Component {
 	}
 
 	renderCell(column, entity) {
-		return <Cell column={column} entity={entity} />
+		const key = generateUUID();
+		return (
+			<Cell
+				key={key}
+				column={column}
+				entity={entity}
+			/>
+		)
 	}
 
 	mapColumns(columns, entity) {
