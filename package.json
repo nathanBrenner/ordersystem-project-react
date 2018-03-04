@@ -2,7 +2,9 @@
   "name": "ordersystem-project-react",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:9001",
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "3.3.7",
     "font-awesome": "4.7.0",
     "jquery": "2.2.4",
