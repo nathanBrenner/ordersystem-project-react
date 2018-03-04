@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import TableHead from '../TableHead/TableHead';
 
 class CustomersTable extends Component {
 
@@ -26,25 +27,11 @@ class CustomersTable extends Component {
 			: [].map(this.renderRow);
 	}
 
-	renderTableHead(columns) {
-		return (
-			<thead>
-				<tr>
-					{columns.map(this.renderColumn)}
-				</tr>
-			</thead>
-		)
-	}
-
-	renderColumn(column) {
-		return <th>{column}</th>
-	}
-
 	render() {
 		return (
 			<div>
 				<table className="table">
-					{this.renderTableHead(this.props.columns)}
+					<TableHead columns={this.props.columns} />
 					{this.renderRows(this.props.entities)}
 				</table>
 			</div>
