@@ -2,48 +2,50 @@ import React, {Component} from 'react';
 
 class CustomersTable extends Component {
 
-	renderRow(customer) {
+	renderRow(entity) {
 		return (
-			<tr key={customer.fullName}>
-				<td>{customer.fullName}</td>
-				<td>{customer.address1}</td>
-				<td>{customer.address2}</td>
-				<td>{customer.city}</td>
-				<td>{customer.state}</td>
-				<td>{customer.zip}</td>
-				<td>{customer.getsDiscount ? 'Yes':'No'}</td>
+			<tr key={entity.fullName}>
+				<td>{entity.fullName}</td>
+				<td>{entity.address1}</td>
+				<td>{entity.address2}</td>
+				<td>{entity.city}</td>
+				<td>{entity.state}</td>
+				<td>{entity.zip}</td>
+				<td>{entity.getsDiscount ? 'Yes':'No'}</td>
 			</tr>
 		)
 	}
 
-	renderRows() {
-		const {customers} = this.props
-		const customerList = customers.map(this.renderRow);
-		return <tbody>{customerList}</tbody>
+	renderRows(entities) {
+		return <tbody>{this.mapRows(entities)}</tbody>
 	}
 
-	renderTableHead() {
+	mapRows(entities) {
+		return entities && entities.length > 0
+			? entities.map(this.renderRow)
+			: [].map(this.renderRow);
+	}
+
+	renderTableHead(columns) {
 		return (
 			<thead>
 				<tr>
-						<th>Full Name</th>
-						<th>Address Line 1</th>
-						<th>Address Line 2</th>
-						<th>City</th>
-						<th>State</th>
-						<th>Zip</th>
-						<th>Discount?</th>
+					{columns.map(this.renderColumn)}
 				</tr>
 			</thead>
 		)
+	}
+
+	renderColumn(column) {
+		return <th>{column}</th>
 	}
 
 	render() {
 		return (
 			<div>
 				<table className="table">
-					{this.renderTableHead()}
-					{this.renderRows()}
+					{this.renderTableHead(this.props.columns)}
+					{this.renderRows(this.props.entities)}
 				</table>
 			</div>
 		)

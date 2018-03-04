@@ -10,7 +10,16 @@ class Customers extends Component {
 		super(props);
 		this.state = {
 			title: 'Customers',
-			customers: []
+			customers: [],
+			columns: [
+				'Full Name',
+				'Address Line 1',
+				'Address Line 2',
+				'City',
+				'State',
+				'Zip',
+				'Discount?',
+			]
 		}
 	}
 
@@ -34,7 +43,10 @@ class Customers extends Component {
 			<div className="row">
 				<div className="col-md-12">
 					<h1>{this.state.title}</h1>
-					<CustomersTable customers={this.state.customers} />
+					<CustomersTable
+						entities={this.state.customers}
+						columns={this.state.columns}
+					/>
 				</div>
 			</div>
 		)
