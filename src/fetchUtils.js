@@ -1,6 +1,6 @@
 const uuidV4 = require('uuid/v4');
 
-function checkStatus(response) {
+export function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -15,13 +15,13 @@ export function get(endpoint) {
 	const init = {
 		accept: "application/json"
 	};
-	return fetch(`api/${endpoint}`, init)
+	return fetch(`/api/${endpoint}`, init)
 		.then(checkStatus)
 		.then(parseJSON)
-		.catch(err => alert(err));
+		.catch(err => console.log(err));
 }
 
-function parseJSON(response) {
+export function parseJSON(response) {
   return response.json();
 }
 

@@ -4,9 +4,8 @@ import { generateUUID } from '../fetchUtils'
 
 class Row extends Component {
 	render() {
-		const key = generateUUID();
 		return (
-			<tr key={key}>
+			<tr>
 				{this.mapColumns(this.props.columns, this.props.entity)}
 			</tr>
 		)

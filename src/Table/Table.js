@@ -4,19 +4,17 @@ import Rows from './Rows';
 
 class Table extends Component {
 	render() {
-		const link = this.props.entities && this.props.entities[0]
-			? `/customers/${this.props.entities[0].id}`
-			: '/customers';
+		// const link = this.props.entities && this.props.entities[0]
+		// 	? `/customers/${this.props.entities[0].id}`
+		// 	: '/customers';
 		return (
-			<div>
-				<table className="table">
-					<TableHead columns={this.props.columns} />
-					<Rows
-						entities={this.props.entities}
-						columns={this.props.columns}
-					/>
-				</table>
-			</div>
+			<table className="table">
+				<TableHead columns={this.props.columns} />
+				<Rows
+					entities={this.props.entities}
+					columns={this.props.columns}
+				/>
+			</table>
 		)
 	}
 }

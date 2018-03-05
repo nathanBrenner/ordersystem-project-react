@@ -8,7 +8,9 @@ class Cell extends Component {
 	}
 
 	checkRoute(entity, column) {
-		return column.route ? this.cellWithLink(entity, column) : this.cellWithoutLink(entity, column);
+		return column.route
+			? this.cellWithLink(entity, column)
+			: this.cellWithoutLink(entity, column);
 	}
 
 	cellWithLink(entity, column) {
