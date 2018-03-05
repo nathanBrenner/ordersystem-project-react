@@ -9,7 +9,7 @@ class Orders extends Component {
 		this.state = {
 			title: 'Orders',
 			columns: [
-				{title: 'Order Id', 			mapTo: 'id'},
+				{title: 'Order Id', 			mapTo: 'id', route: {parent: 'orders', param: 'id'}},
 				{title: 'Customer Name', 	mapTo: 'customerId'},
 				{title: 'Total Items', 		mapTo: 'totalItems'},
 				{title: 'Total Sale', 		mapTo: 'totalSale'}

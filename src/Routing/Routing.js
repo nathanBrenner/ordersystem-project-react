@@ -11,7 +11,9 @@ import Customer from '../Customers/Customer';
 import Customers from '../Customers/Customers';
 import Navigation from '../Navigation/Navigation';
 import Orders from '../Orders/Orders';
+import Order from '../Orders/Order';
 import Products from '../Products/Products';
+import Product from '../Products/Product';
 
 class AppRouting extends Component {
 	render() {
@@ -40,9 +42,17 @@ class AppRouting extends Component {
 							component={Orders}
 						/>
 						<Route
+							path="/orders/:id"
+							component={Order}
+						/>
+						<Route
 							path="/products"
 							exact={true}
 							component={Products}
+						/>
+						<Route
+							path="/products/:id"
+							component={Product}
 						/>
 					</div>
 				</div>

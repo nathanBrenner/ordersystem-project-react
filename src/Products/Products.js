@@ -9,7 +9,7 @@ class Products extends Component {
 			title: 'Products',
 			entities: [],
 			columns: [
-				{title: 'Product Id', mapTo: 'id'},
+				{title: 'Product Id', mapTo: 'id', route: {parent: 'products', param: 'id'}},
 				{title: 'Name', 			mapTo: 'name'},
 				{title: 'Color', 			mapTo: 'color'},
 				{title: 'Price', 			mapTo: 'price'},

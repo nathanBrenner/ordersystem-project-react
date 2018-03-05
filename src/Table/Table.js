@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import TableHead from './TableHead';
 import Rows from './Rows';
-import { Link } from 'react-router-dom';
 
 class Table extends Component {
 	render() {
@@ -10,7 +9,6 @@ class Table extends Component {
 			: '/customers';
 		return (
 			<div>
-				<Link to={link}>Customer</Link>
 				<table className="table">
 					<TableHead columns={this.props.columns} />
 					<Rows

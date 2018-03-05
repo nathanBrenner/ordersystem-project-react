@@ -9,7 +9,7 @@ class Customers extends Component {
 			title: 'Customers',
 			entities: [],
 			columns: [
-				{title: 'Full Name', 			mapTo: 'fullName'},
+				{title: 'Full Name', 			mapTo: 'fullName', route: {parent: 'customers', param: 'id'}},
 				{title: 'Address Line 1', mapTo: 'address1'},
 				{title: 'Address Line 2', mapTo: 'address2'},
 				{title: 'City', 					mapTo: 'city'},
