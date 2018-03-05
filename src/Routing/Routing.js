@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import Home from '../Home/Home';
+import Customer from '../Customers/Customer';
 import Customers from '../Customers/Customers';
 import Navigation from '../Navigation/Navigation';
 import Orders from '../Orders/Orders';
@@ -19,11 +20,30 @@ class AppRouting extends Component {
 				<div>
 					<Navigation />
 					<div className="container">
-						<Redirect from="/" to="home" />
-						<Route path="/home" component={Home} />
-						<Route path="/customers" component={Customers} />
-						<Route path="/orders" component={Orders} />
-						<Route path="/products" component={Products} />
+						<Route
+							path="/"
+							exact={true}
+							component={Home}
+						/>
+						<Route
+							path="/customers"
+							exact={true}
+							component={Customers}
+						/>
+						<Route
+							path="/customers/:id"
+							component={Customer}
+						/>
+						<Route
+							path="/orders"
+							exact={true}
+							component={Orders}
+						/>
+						<Route
+							path="/products"
+							exact={true}
+							component={Products}
+						/>
 					</div>
 				</div>
 			</Router>

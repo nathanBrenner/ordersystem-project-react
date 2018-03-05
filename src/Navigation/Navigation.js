@@ -14,7 +14,7 @@ class Navigation extends Component {
 			<nav className="navbar navbar-default">
 				<div className="container-fluid">
 					<div className="navbar-header">
-						<Link to="/home" className="navbar-brand">{this.state.companyName}</Link>
+						<Link to="/" className="navbar-brand">{this.state.companyName}</Link>
 					</div>
 
 					<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
