@@ -33,6 +33,7 @@ class AppRouting extends Component {
 						/>
 						<Route
 							path="/customers/:id"
+							exact={true}
 							component={Customer}
 						/>
 						<Route
@@ -42,6 +43,7 @@ class AppRouting extends Component {
 						/>
 						<Route
 							path="/orders/:id"
+							exact={true}
 							component={Order}
 						/>
 						<Route
@@ -51,6 +53,7 @@ class AppRouting extends Component {
 						/>
 						<Route
 							path="/products/:id"
+							exact={true}
 							component={Product}
 						/>
 					</div>
