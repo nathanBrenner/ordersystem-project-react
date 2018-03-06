@@ -13,6 +13,7 @@ import Orders from '../Orders/Orders';
 import Order from '../Orders/Order';
 import Products from '../Products/Products';
 import Product from '../Products/Product';
+import OrderCreate from '../Orders/OrderCreate';
 
 class AppRouting extends Component {
 	render() {
@@ -43,8 +44,11 @@ class AppRouting extends Component {
 						/>
 						<Route
 							path="/orders/:id"
-							exact={true}
 							component={Order}
+						/>
+						<Route
+							path="/orders/create"
+							component={OrderCreate}
 						/>
 						<Route
 							path="/products"
