@@ -1,28 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Row from './Row';
-import { generateUUID } from '../fetchUtils'
+import { generateUUID } from '../fetchUtils';
 
-class Rows extends Component {
-	mapRows(entities, columns) {
-		return entities && entities.length > 0
-			? entities.map(entity => this.renderRow(entity, columns))
-			: [].map(entity => this.renderRow(entity, columns));
-	}
+const UniqueRow = (entity, columns) => (
+  <Row key={generateUUID()} columns={columns} entity={entity} />
+);
 
-	renderRow(entity, columns) {
-		const key = generateUUID();
-		return (
-			<Row 
-				key={key}
-				columns={columns}
-				entity={entity}
-			/>
-		)
-	}
+const MapRows = ({ entities, columns }) =>
+  entities.map(entity => UniqueRow(entity, columns));
 
-	render() {
-		return <tbody>{this.mapRows(this.props.entities, this.props.columns)}</tbody>
-	}
-}
+const Rows = ({ entities, columns }) => (
+  <tbody>
+    <MapRows entities={entities} columns={columns} />
+  </tbody>
+);
 
 export default Rows;

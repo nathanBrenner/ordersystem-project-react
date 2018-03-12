@@ -1,10 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Column extends Component {
-	render() {
-		const {column} = this.props;
-		return <th key={column.mapTo}>{column.title}</th>
-	}
-}
+const Column = ({ column }) => <th key={column.mapTo}>{column.title}</th>;
 
 export default Column;

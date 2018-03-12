@@ -1,30 +1,20 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Cell from './Cell';
-import { generateUUID } from '../fetchUtils'
+import { generateUUID } from '../fetchUtils';
 
-class Row extends Component {
-	render() {
-		return (
-			<tr>
-				{this.mapColumns(this.props.columns, this.props.entity)}
-			</tr>
-		)
-	}
+const UniqueCell = ({ column, entity }) => (
+  <Cell key={generateUUID()} column={column} entity={entity} />
+);
 
-	renderCell(column, entity) {
-		const key = generateUUID();
-		return (
-			<Cell
-				key={key}
-				column={column}
-				entity={entity}
-			/>
-		)
-	}
+const Columns = ({ columns, entity }) =>
+  columns.map(column => (
+    <UniqueCell key={generateUUID()} column={column} entity={entity} />
+  ));
 
-	mapColumns(columns, entity) {
-		return columns.map(column => this.renderCell(column, entity));
-	}
-}
+const Row = ({ columns, entity }) => (
+  <tr>
+    <Columns columns={columns} entity={entity} />
+  </tr>
+);
 
 export default Row;

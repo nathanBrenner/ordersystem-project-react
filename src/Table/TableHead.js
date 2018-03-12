@@ -1,23 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Column from './Column';
-import { generateUUID } from '../fetchUtils'
+import { generateUUID } from '../fetchUtils';
 
-class TableHead extends Component {
-	render() {
-		return (
-			<thead>
-				<tr>
-					{this.props.columns.map(this.renderColumn)}
-				</tr>
-			</thead>
-		)
-	}
+const UniqueColumn = column => <Column key={generateUUID()} column={column} />;
 
-	renderColumn(column) {
-		const key = generateUUID();
-
-		return <Column key={key} column={column} />
-	}
-}
+const TableHead = ({ columns }) => (
+  <thead>
+    <tr>{columns.map(UniqueColumn)}</tr>
+  </thead>
+);
 
 export default TableHead;
