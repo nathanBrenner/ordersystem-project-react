@@ -1,33 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Navigation extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			companyName: 'Awesome, Inc.'
-		}
+const Route = ({ route }) => (
+  <li>
+    <Link to={route.path}>{route.title}</Link>
+  </li>
+);
 
-	}
-	render() {
-		return (
-			<nav className="navbar navbar-default">
-				<div className="container-fluid">
-					<div className="navbar-header">
-						<Link to="/" className="navbar-brand">{this.state.companyName}</Link>
-					</div>
+const Routes = ({ routes }) => (
+  <ul className="nav navbar-nav">
+    {routes.map(route => <Route key={route.title} route={route} />)}
+  </ul>
+);
 
-					<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul className="nav navbar-nav">
-							<li><Link to="/customers">Customers</Link></li>
-							<li><Link to="/products">Products</Link></li>
-							<li><Link to="/orders">Orders</Link></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		)
-	}
-}
+const Navigation = ({ title, routes }) => (
+  <nav className="navbar navbar-default">
+    <div className="container-fluid">
+      <div className="navbar-header">
+        <Link to="/" className="navbar-brand">
+          {title}
+        </Link>
+      </div>
+
+      <div
+        className="collapse navbar-collapse"
+        id="bs-example-navbar-collapse-1"
+      >
+        <Routes routes={routes} />
+      </div>
+    </div>
+  </nav>
+);
 
 export default Navigation;
