@@ -3,12 +3,10 @@ import { CustomerTitle } from './CustomerTitle';
 import { CustomerAddress } from './CustomerAddress';
 import { CustomerDiscount } from './CustomerDiscount';
 
-export function CustomerDetail(props) {
-	return (
-		<div>
-			<CustomerTitle title={props.title} name={props.name} />
-			<CustomerAddress address={props.address} />
-			<CustomerDiscount getsDiscount={props.getsDiscount} />
-		</div>
-	)
-}
+export const CustomerDetail = ({ title, name, address, getsDiscount }) => (
+  <div>
+    <CustomerTitle title={title} name={name} />
+    <CustomerAddress address={address} />
+    <CustomerDiscount getsDiscount={getsDiscount} />
+  </div>
+);
